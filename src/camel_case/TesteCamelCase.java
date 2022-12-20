@@ -130,7 +130,7 @@ public class TesteCamelCase {
 		return l;
 	}
 
-	public String[] separaMaiscula(String string) {
+	public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		return palavras;
 	}
@@ -138,11 +138,11 @@ public class TesteCamelCase {
 }
 		 * Criamos a função que retorna uma array de palavras separadas por letras maiúsculas e testamos com dois casos diferentes
 		 */
-		String[] separadas = camel.separaMaiscula("helloWorld");
+		String[] separadas = camel.separaMaiuscula("helloWorld");
 		assertFalse(separadas.length == 0);
 		assertEquals("hello", separadas[0]);
 		assertEquals("World", separadas[1]);
-		separadas = camel.separaMaiscula("helloMyBabyHelloMyMama");
+		separadas = camel.separaMaiuscula("helloMyBabyHelloMyMama");
 		assertEquals("hello", separadas[0]);
 		assertEquals("Mama", separadas[separadas.length-1]);
 		assertEquals("Baby", separadas[2]);
@@ -154,14 +154,14 @@ public class TesteCamelCase {
 		/*
 		 * Teste "retornaPrimeiraMinuscula" para a função "formatarPalavra" retornar palavras que comecem com letra minuscula ou maiuscula como totalmente minusculas
 		 * Antes: 
-		 * public String[] separaMaiscula(String string) {
+		 * public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		return palavras;
 	}
 
 }
 		 * Depois:
-		 * public String[] separaMaiscula(String string) {
+		 * public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		return palavras;
 	}
@@ -210,12 +210,12 @@ public class TesteCamelCase {
 		/*
 		 * Teste "separaPalavraMaiscula" para a função "separaMaiuscula" retornar como palavras 3 ou mais caracteres que estejam todos em maiúsculo
 		 * Antes: 
-		 * public String[] separaMaiscula(String string) {
+		 * public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		return palavras;
 	}
 		 * Depois:
-		 * public String[] separaMaiscula(String string) {
+		 * public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		List<String> subarray = new ArrayList<>();
 		for (int i = 0; i < palavras.length; i++)
@@ -235,14 +235,14 @@ public class TesteCamelCase {
 	}
 		 * Agora a função vai checar por letras maiusculas separadas e uni-las para fazer palavras inteiras
 		 */
-		String[] separadas = camel.separaMaiscula("CPF");
+		String[] separadas = camel.separaMaiuscula("CPF");
 		assertEquals("CPF",separadas[0]);
-		separadas = camel.separaMaiscula("seuCPFPorFavor");
+		separadas = camel.separaMaiuscula("seuCPFPorFavor");
 		assertEquals("seu",separadas[0]);
 		assertEquals("CPF",separadas[1]);
 		assertEquals("Por",separadas[2]);
 		assertEquals("Favor",separadas[3]);
-		separadas = camel.separaMaiscula("PorFavorCPF");
+		separadas = camel.separaMaiuscula("PorFavorCPF");
 		assertEquals("CPF",separadas[2]);
 	}
 	
@@ -256,7 +256,7 @@ public class TesteCamelCase {
 	}
 	
 
-	public String[] separaMaiscula(String string) {
+	public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		 * Depois:
 		 * 	return l;
@@ -266,7 +266,7 @@ public class TesteCamelCase {
 		return (string.length() < 2) && (isNumeric == Character.isDigit(string.charAt(0)));
 	}
 
-	public String[] separaMaiscula(String string) {
+	public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		 * Criamos a função que retorna true caso a string seja de um caracter e do tipo especificado
 		 */
@@ -283,9 +283,9 @@ public class TesteCamelCase {
 	public void separaNumeros()
 	{
 		/*
-		 * Teste "separaNumeros" para a função "separaMaiscula" retornar os numeros separados como palavras
+		 * Teste "separaNumeros" para a função "separaMaiuscula" retornar os numeros separados como palavras
 		 * Antes: 
-		 * public String[] separaMaiscula(String string) {
+		 * public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=\\p{Lu})");
 		List<String> subarray = new ArrayList<>();
 		for (int i = 0; i < palavras.length; i++)
@@ -324,7 +324,7 @@ public class TesteCamelCase {
 		 * Agora a função também separa caracteres numéricos como se fossem letras maiúsculas, que depois são unidas em uma palavra só
 		 */
 		
-		String[] separadas = camel.separaMaiscula("pedidoNumero4058ChegouE40Com8Chegaram");
+		String[] separadas = camel.separaMaiuscula("pedidoNumero4058ChegouE40Com8Chegaram");
 		assertEquals("4058",separadas[2]);
 		assertEquals("40",separadas[5]);
 		assertEquals("8",separadas[7]);
@@ -419,7 +419,7 @@ public class TesteCamelCase {
 			throw new FormatacaoErrada("String começa com caracter numérico");
 		if(string.matches(".*[^A-Za-z0-9].*"))
 			throw new FormatacaoErrada("String tem caracteres não alfanuméricos");
-		String[] palavras = separaMaiscula(string);
+		String[] palavras = separaMaiuscula(string);
 		for (String p : palavras)
 		{
 			l.add(formatarPalavra(p));

@@ -15,7 +15,7 @@ public class CamelCase {
 			throw new FormatacaoErrada("String começa com caracter numérico");
 		if(string.matches(".*[^A-Za-z0-9].*"))
 			throw new FormatacaoErrada("String tem caracteres não alfanuméricos");
-		String[] palavras = separaMaiscula(string);
+		String[] palavras = separaMaiuscula(string);
 		for (String p : palavras)
 		{
 			l.add(formatarPalavra(p));
@@ -27,7 +27,7 @@ public class CamelCase {
 		return (string.length() < 2) && (isNumeric == Character.isDigit(string.charAt(0)));
 	}
 
-	public String[] separaMaiscula(String string) {
+	public String[] separaMaiuscula(String string) {
 		String[] palavras = string.split("(?=[\\p{Lu}\\d])");
 		List<String> subarray = new ArrayList<>();
 		for (int i = 0; i < palavras.length; i++)
